@@ -1,5 +1,5 @@
 import axios from 'axios';
-var backend  = 'http://127.0.0.1:8000/api/';
+var backend  = 'https://dls-production-37a3.up.railway.app/';
 
 export async function fetchData(endpoint, method, data=null) {
     if (method == 'GET') {
