@@ -243,10 +243,11 @@
     flex-direction: column;
     margin: 0 auto;
     justify-items: center;
+    width: 100%;
   }
   .participating,
   .open {
-    width: 95%;
+    width: 100%;
   }
 
   .tournament-tables {
