@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-du%mk=nqmwd#*lxdr_a_@nky_%)wb=k8w*tnb@cq*h(*xc@d@@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 ALLOWED_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
@@ -50,12 +50,15 @@ AUTH_USER_MODEL = 'api.Player'
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -81,7 +84,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         #Postgres database settings
         'ENGINE': 'django.db.backends.postgresql',
@@ -91,6 +94,21 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
 
+    }
+}'''
+
+DATABASES = {
+    'default': {
+        #Postgres database settings
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'eJSxftjZfTHDKUchSWfTXqlKcOePRkMq', 
+        'HOST': 'caboose.proxy.rlwy.net',
+        'PORT': '41337',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
 
@@ -130,4 +148,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
