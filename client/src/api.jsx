@@ -1,0 +1,21 @@
+import axios from 'axios';
+var backend  = 'http://127.0.0.1:8000/api/';
+
+export async function fetchData(endpoint, method, data=null) {
+    if (method == 'GET') {
+        const response = await axios.get(backend + endpoint + '/');
+        return response.data;
+    }
+    else if (method == 'POST') {
+        const response = await axios.post(backend + endpoint + '/', data);
+        return response.data;
+    }
+    else if (method == 'PUT') {
+        const response = await axios.put(backend + endpoint + '/', data);
+        return response.data;
+    }
+    else if (method == 'DELETE') {
+        const response = await axios.delete(backend + endpoint + '/');
+        return response.data;
+    }
+}

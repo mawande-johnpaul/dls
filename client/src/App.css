@@ -1,0 +1,200 @@
+@font-face {
+  font-family: 'Google-Sans';
+  src: url('GoogleSans_17pt-Regular.ttf');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google-Sans';
+  src: url('GoogleSans_17pt-SemiBold.ttf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google-Sans';
+  src: url('GoogleSans_17pt-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google-Sans';
+  src: url('GoogleSans_17pt-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Google-Sans',system-ui;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f0f0;
+  margin: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+  height: 5vh;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  z-index: 1000;
+  background-color: #ffffff;
+}
+
+
+
+.banner-video {
+    position: absolute;
+}
+
+.banner-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    max-width: 90%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.banner-content h1{
+    margin: 0.2rem 0;
+    line-height: 1.05;
+    font-weight: 700;
+    font-size: clamp(2rem, 8vw, 5rem);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    pointer-events: auto;
+}
+
+.banner-content p{
+    margin: 0.5rem 0 0;
+    font-size: clamp(1rem, 3.5vw, 1.6rem);
+    max-width: 70ch;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    pointer-events: auto;
+}
+
+.banner-content button{
+    margin-top: 2rem;
+    padding: 0.7rem 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    background-color: crimson;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    pointer-events: auto;
+}
+
+main {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  background-color: crimson;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+button:hover {
+  background: #b91636;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar {
+  display: flex;
+  justify-items: center;
+}
+
+.navtab {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-bottom: 5px solid transparent;
+}
+
+.navtab:hover{
+  background-color: rgba(220, 20, 60, 0.05);
+  transition: ease-in-out 0.5s;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  margin-top: 8vh;
+  /* Reduce banner height so announcements are visible below it */
+  height: 65vh;
+  max-height: calc(100vh - 10vh);
+  overflow: hidden;
+  margin-bottom: 5vh;
+}
+
+@media (min-width: 1200px) {
+  header {
+    padding: 1rem;
+  }
+  .banner-content {
+    max-width: 60%;
+  }
+  .navtab {
+    padding: 0.5rem 0.4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  header {
+    padding: 2rem 0.5rem;
+  }
+
+  .navtab {
+    padding: 0.5rem 0.4rem;
+  }
+}
+
+

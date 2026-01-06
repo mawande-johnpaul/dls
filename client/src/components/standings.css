@@ -1,0 +1,13 @@
+.standings table {
+    margin-top: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid;
+}
+
+.standings th,
+.standings td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}

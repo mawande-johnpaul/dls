@@ -1,0 +1,90 @@
+.rules-page {
+  max-width: 900px;
+  margin: 6vh auto;
+  margin-top: 10vh;
+}
+
+.rules-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.rules-actions .action {
+  background: #fff;
+  border: 1px solid #d8d2bf;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  color: crimson;
+}
+
+.rules-actions .action:hover{
+    transform: scale(1.1);
+    transition: ease-in-out 0.2s;
+}
+
+.rules-journal {
+  background: #fbf8ef;
+  border: 1px solid #e6dcc7;
+  padding: 1.6rem;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(220,20,60,0.06);
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #222;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+.rules-journal:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 140px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.0) 100%);
+  transform: rotate(-2deg);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.rules-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.lead {
+  color: #4b4b4b;
+  margin-bottom: 1rem;
+}
+
+.rule-section + .rule-section {
+  margin-top: 0.9rem;
+}
+
+.rule-section h2 {
+  margin: 0.6rem 0 0.3rem 0;
+  font-size: 1rem;
+}
+
+.rule-section ol {
+  margin: 0.25rem 0 0.6rem 1.25rem;
+}
+
+.rules-footer {
+  margin-top: 1rem;
+  border-top: 1px dashed #e6dcc7;
+  padding-top: 0.8rem;
+  color: #6b6b6b;
+}
+
+@media (max-width: 700px) {
+  .rules-actions { justify-content: center; }
+  .rules-page { margin-top: 10vh; padding: 0 1rem; }
+}
