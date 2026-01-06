@@ -17,6 +17,7 @@ export default function Tournaments() {
   const [isCreatingTeam, setIsCreatingTeam] = useState(false);
   const [joinLoading, setJoinLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
+  const [joinedTournaments, setJoinedTournaments] = useState([]);
   
   // Tournament details view
   const [viewingTournament, setViewingTournament] = useState(null);
@@ -26,6 +27,11 @@ export default function Tournaments() {
 
   useEffect(() => {
     loadData();
+    // Load joined tournaments from localStorage
+    const stored = localStorage.getItem("joinedTournaments");
+    if (stored) {
+      setJoinedTournaments(JSON.parse(stored));
+    }
   }, []);
 
   const loadData = async () => {
@@ -117,6 +123,11 @@ export default function Tournaments() {
       });
 
       setMessage({ type: "success", text: response.message });
+
+      // Update joined tournaments
+      const updated = [...joinedTournaments, selectedTournament.id];
+      setJoinedTournaments(updated);
+      localStorage.setItem("joinedTournaments", JSON.stringify(updated));
 
       setTimeout(() => {
         setIsJoinModalOpen(false);
@@ -253,10 +264,44 @@ export default function Tournaments() {
         <div className="participating">
           <h1>My tournaments</h1>
           <div className="participating-content">
-            <p>You have not joined any tournaments</p>
-            <button onClick={() => setIsJoinModalOpen(true)}>
-              Join a tournament
-            </button>
+            {loading ? (
+              <LoadingSkeleton type="card" count={1} />
+            ) : joinedTournaments.length > 0 ? (
+              <div className="announcement-items">
+                {tournaments
+                  .filter((t) => joinedTournaments.includes(t.id))
+                  .map((tournament) => (
+                    <article key={tournament.id} className="tournament-card">
+                      <h2 className="tournament-title">{tournament.title}</h2>
+                      <div className="tournament-meta">
+                        <strong className="entry">₦{tournament.entry_fee}</strong>
+                        <div className="dates">
+                          <span>
+                            Start:{" "}
+                            {new Date(tournament.start_date).toLocaleDateString()}
+                          </span>
+                          <span>
+                            End: {new Date(tournament.end_date).toLocaleDateString()}
+                          </span>
+                        </div>
+                      </div>
+                      <button
+                        className="view-tournament-btn"
+                        onClick={() => handleViewTournament(tournament)}
+                      >
+                        View Details
+                      </button>
+                    </article>
+                  ))}
+              </div>
+            ) : (
+              <>
+                <p>You have not joined any tournaments</p>
+                <button onClick={() => setIsJoinModalOpen(true)}>
+                  Join a tournament
+                </button>
+              </>
+            )}
           </div>
         </div>
         <div className="open">

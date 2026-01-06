@@ -45,8 +45,8 @@ body {
 header {
   display: flex;
   align-items: center;
-  padding: 2rem 1rem;
-  height: 5vh;
+  padding: 1.5rem 2rem;
+  min-height: 60px;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -176,7 +176,7 @@ video {
 
 @media (min-width: 1200px) {
   header {
-    padding: 1rem;
+    padding: 1.5rem 3rem;
   }
   .banner-content {
     max-width: 60%;
